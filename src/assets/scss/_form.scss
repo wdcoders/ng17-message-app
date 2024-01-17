@@ -1,0 +1,15 @@
+.form-group {
+  @apply flex flex-col gap-1;
+}
+
+.form-label {
+  @apply block mb-0.5 font-medium text-gray-900;
+
+  span {
+    @apply text-red-600;
+  }
+}
+
+.form-control {
+  @apply bg-gray-50 outline-none border-2 border-gray-300 rounded-lg focus:border-blue-600 w-full p-2.5 px-3.5;
+}
