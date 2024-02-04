@@ -4,7 +4,9 @@ import { messageSchema } from '../_helpers/validators';
 class MessageController {
   public async getAllMessage(request: Request, response: Response) {
     try {
-      const messages = await MessageModel.find();
+      const messages = await MessageModel.find()
+        .populate('to', '_id name email')
+        .populate('sender', '_id name email');
       return response.status(200).json({ data: messages });
     } catch (error) {
       return response.status(400).json({ status: false, error });

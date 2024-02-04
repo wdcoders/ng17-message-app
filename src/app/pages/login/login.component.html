@@ -4,14 +4,22 @@
       <h4 class="text-lg font-bold">Login Here</h4>
     </card-title>
     <card-body>
-      <form action="">
+      <form [formGroup]="loginForm" (submit)="onSubmit()" novalidate>
         <div class="form-group mb-3">
-          <label for="" class="form-label">Email Address <span>*</span></label>
-          <input type="email" name="" id="" class="form-control" placeholder="Email Address">
+          <label for="email" class="form-label">Email Address <span>*</span></label>
+          <input type="email" name="email" id="email" class="form-control" placeholder="Email Address"
+            formControlName="email">
+          @if (loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched) {
+          <span class="form-error">Email is required.</span>
+          }
         </div>
         <div class="form-group mb-3">
-          <label for="" class="form-label">Password <span>*</span></label>
-          <input type="password" name="" id="" class="form-control" placeholder="Password">
+          <label for="password" class="form-label">Password <span>*</span></label>
+          <input type="password" name="password" id="password" class="form-control" placeholder="Password"
+            formControlName="password">
+          @if (loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched) {
+          <span class="form-error">Password is required.</span>
+          }
         </div>
         <button type="submit" class="btn btn-blue">Login</button>
       </form>
