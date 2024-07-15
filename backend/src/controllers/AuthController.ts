@@ -82,9 +82,8 @@ class AuthController {
           _id: user._id.toString(),
           email: user.email,
           name: user.name,
-          token: user.token || '',
         };
-        return response.status(201).json({ data });
+        return response.status(200).json({ data });
       }
     } catch (error) {
       return response.status(400).json({ status: false, error });

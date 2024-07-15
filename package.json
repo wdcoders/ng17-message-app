@@ -20,6 +20,7 @@
     "@angular/router": "^17.0.0",
     "@ngxs/devtools-plugin": "^3.8.2-dev.master-e0981de",
     "@ngxs/store": "^3.8.2",
+    "ngx-socket-io": "^4.7.0",
     "ngx-toastr": "^18.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

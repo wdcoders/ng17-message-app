@@ -1,1 +1,18 @@
-<p>to-input works!</p>
+<div class="flex flex-col relative">
+  <div class="flex w-full">
+    <input type="text" [(ngModel)]="input" (keyup)="filterData()" (ngModelChange)="onChange($event)"
+      (blur)="onTouched($event)" class="form-control" [placeholder]="placeholder" [class]="customClass">
+  </div>
+  <div class="absolute shadow left-0 top-11 bg-white min-w-72">
+    @for (item of filteredData; track $index) {
+    <div class="flex gap-2 items-center cursor-pointer hover:bg-slate-50 p-2" (click)="selectedUser(item)">
+      <div class="w-10 h-10 rounded-full inline-flex justify-center items-center bg-gray-300">
+        {{item.name.substring(0,2)}}</div>
+      <div>
+        <h4 class="font-bold">{{item.name}}</h4>
+        {{item.email}}
+      </div>
+    </div>
+    }
+  </div>
+</div>

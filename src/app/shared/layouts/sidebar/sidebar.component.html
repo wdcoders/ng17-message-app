@@ -5,11 +5,13 @@
   </card-title>
   <card-body>
     <div class="flex flex-col gap-2">
-      <a routerLink="/messages"
+      <a routerLink="/messages/inbox"
         class="inline-flex bg-gray-100 hover:bg-gray-300 px-3.5 py-2.5 rounded-lg font-medium">Messages</a>
-      <a href="" class="inline-flex bg-gray-100 hover:bg-gray-300 px-3.5 py-2.5 rounded-lg font-medium">Sent
+      <a routerLink="/messages/sent"
+        class="inline-flex bg-gray-100 hover:bg-gray-300 px-3.5 py-2.5 rounded-lg font-medium">Sent
         Messages</a>
-      <a href="" class="inline-flex bg-gray-100 hover:bg-gray-300 px-3.5 py-2.5 rounded-lg font-medium">Trash
+      <a routerLink="/messages/trash"
+        class="inline-flex bg-gray-100 hover:bg-gray-300 px-3.5 py-2.5 rounded-lg font-medium">Trash
         Messages</a>
     </div>
   </card-body>

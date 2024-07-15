@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { IMessage } from '../../../core/models/common.model';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { IMessage, MessageType } from '../../../core/models/common.model';
 import { DateAgoPipe } from '../../pipes/date-ago.pipe';
 import { CommonModule } from '@angular/common';
 
@@ -12,4 +12,10 @@ import { CommonModule } from '@angular/common';
 })
 export class MessageItemComponent {
   @Input() data!: IMessage;
+  @Input() type: MessageType = 'inbox';
+  @Output() deleteMessage = new EventEmitter();
+
+  onDelete(data: IMessage) {
+    this.deleteMessage.emit(data);
+  }
 }
