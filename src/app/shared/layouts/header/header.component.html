@@ -3,6 +3,7 @@
     <h4 class="font-bold text-xl">Mail Box</h4>
     <div class="flex items-center">
       @if (isAuthenticate$ | async) {
+      ({{(user$ | async)?.name}})
       <div class="px-3 font-medium cursor-pointer hover:text-blue-600" (click)="logout()">Logout</div>
       }@else {
       <a routerLink="register" class="px-3 font-medium hover:text-blue-600">Register</a>

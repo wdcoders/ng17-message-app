@@ -5,12 +5,15 @@
   <div class="col-span-3">
     <app-card>
       <card-title>
-        <h4 class="text-lg font-bold">Messages</h4>
+        <h4 class="text-lg font-bold">{{title}}</h4>
       </card-title>
       <card-body>
         <div class="border-b border-gray-200">
           @for (item of messages$ | async; track $index) {
-          <app-message-item [data]="item"></app-message-item>
+          @if (item.status && checkMessage(item)) {
+          <app-message-item [data]="item" [type]="messageType"
+            (deleteMessage)="deleteMessage($event)"></app-message-item>
+          }
           }
         </div>
       </card-body>

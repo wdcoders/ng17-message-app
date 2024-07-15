@@ -15,7 +15,26 @@ export const routes: Routes = [
       { path: '', component: LoginComponent, canActivate: [guestGuard] },
       { path: 'register', component: RegisterComponent },
       {
-        path: 'messages',
+        path: 'messages/inbox',
+        data: {
+          type: 'inbox',
+        },
+        component: MessagesComponent,
+        canActivate: [authGuard],
+      },
+      {
+        path: 'messages/sent',
+        data: {
+          type: 'sent',
+        },
+        component: MessagesComponent,
+        canActivate: [authGuard],
+      },
+      {
+        path: 'messages/trash',
+        data: {
+          type: 'trash',
+        },
         component: MessagesComponent,
         canActivate: [authGuard],
       },

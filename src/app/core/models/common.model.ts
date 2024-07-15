@@ -14,3 +14,5 @@ export interface IMessage {
   status?: number;
   createdAt?: string;
 }
+
+export type MessageType = 'inbox' | 'sent' | 'trash';

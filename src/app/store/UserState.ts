@@ -48,7 +48,7 @@ export class UserState {
         const state = ctx.getState();
         ctx.setState({
           ...state,
-          users: response.data,
+          users: response.data.filter((u) => u._id !== state.user?._id),
         });
       })
     );

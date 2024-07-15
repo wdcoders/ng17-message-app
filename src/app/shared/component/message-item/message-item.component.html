@@ -2,20 +2,23 @@
   <div class="flex items-center group">
     <div class="flex flex-1">
       <div>
-        <span
-          class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-gray-300">{{data.sender.name.substring(0,3)
-          | uppercase}}</span>
+        <span class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-gray-300">{{type === 'sent' ?
+          (data.to.name.substring(0,2)
+          | uppercase) : (data.sender.name.substring(0,2)
+          | uppercase)}}</span>
       </div>
       <div class="ms-3 flex-1">
-        <div class="text-sm text-gray-900">{{data.sender.name}}</div>
+        <div class="text-sm text-gray-900">{{type === 'sent' ? data.to.name : data.sender.name}}</div>
         <div class="text-sm font-normal text-gray-500 truncate">{{data.subject}}</div>
       </div>
       <div class="inline-flex items-center text-xs text-gray-500">
         {{data.createdAt | dateAgo }}
       </div>
     </div>
-    <div class="font-normal hidden group-hover:inline-flex mx-3">
+    @if(data.status === 1){
+    <div class="font-normal hidden group-hover:inline-flex mx-3" (click)="onDelete(data)">
       <i class="ri-delete-bin-6-fill ri-lg text-red-600"></i>
     </div>
+    }
   </div>
 </div>
